@@ -10,5 +10,5 @@ Il programma utilizza varie librerie di image processing tra cui opencv e per la
 -------------------------------------------------
 
 # Links utili e riferimenti 
-
+[a link](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)
 
