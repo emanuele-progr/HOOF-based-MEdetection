@@ -12,4 +12,5 @@ Il programma utilizza varie librerie di image processing tra cui opencv e per la
 # Links utili e riferimenti 
 - [LibSVM site](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)
 - [OpenCV optical flow](https://docs.opencv.org/3.4/d4/dee/tutorial_optical_flow.html)
+- [CASME2 dataset](http://fu.psych.ac.cn/CASME/casme2-en.php)
 
