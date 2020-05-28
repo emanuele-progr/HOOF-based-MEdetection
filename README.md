@@ -14,4 +14,6 @@ Il programma utilizza varie librerie di image processing e machine learning tra 
 - [OpenCV optical flow](https://docs.opencv.org/3.4/d4/dee/tutorial_optical_flow.html)
 - [CASME2 dataset](http://fu.psych.ac.cn/CASME/casme2-en.php)
 - [Shape predictor landmarks](https://github.com/AKSHAYUBHAT/TensorFace/blob/master/openface/models/dlib/shape_predictor_68_face_landmarks.dat)
-
+- [article1](https://arxiv.org/abs/ 1903.10765)
+- [article2](https://arxiv.org/abs/1812.10306)
+- [article3](https://www.researchgate.net/publication/319769812_ Reading_Hidden_Emotions_Spontaneous_Micro-expression_Spotting_and_ Recognition)
