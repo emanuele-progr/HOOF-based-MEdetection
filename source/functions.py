@@ -182,7 +182,7 @@ def write_test(hist_list, type):
 
 def prepare_data(hist_list, count):
 
-	file = open("datax100_" + str(count) + ".txt", "a")
+	file = open("datax_" + str(count) + ".txt", "a")
 	file.write("+2 ")
 	size = len(hist_list)
 	i = 0
@@ -204,14 +204,14 @@ def prepare_data(hist_list, count):
 
 
 def endingWindow(count):
-	file = open("datax100_" + str(count) + ".txt", "a")
+	file = open("datax_" + str(count) + ".txt", "a")
 	file.write("AAA end window")
 	file.write("\n")
 
 	return
 
 def endingfolder(count):
-	file = open("datax100_" + str(count) + ".txt", "a")
+	file = open("datax_" + str(count) + ".txt", "a")
 	file.write("END")
 	file.write("\n")
 
