@@ -1,0 +1,35 @@
+ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
+
+-Per ottenere la matrice di confusione presente nei risultati vanno
+ scaricati tutti i file presenti nella cartella source e mantenuto
+ l'ordinamento.
+ Sono già presenti i dataset necessari, i modelli addestrati e i 
+ file con i dati da testare dove il test set è formato da descrittori
+ estratti dai soggetti 9-17-18-21 del dataset CASME2 e i dataset per
+ il training sono costituiti da alcuni descrittori di tutti i rimanenti
+ soggetti del dataset.
+ La funzione fast_SVMpredict() si occuperà di usare i modelli per 
+ ottenere predizioni sul testset (le cui true label sono state inserite
+ in un vettore) e costruirà la matrice di confusione calcolando alcuni
+ parametri di confronto.
+
+-Per fare predizioni su sequenze video di CASME2 vanno inserite 
+ nella cartella test_folder all'interno di source le cartelle
+ contenenti i frame dei video di un soggetto specifico.
+ Le cartelle in questione si trovano nel dataset CASME2 in 
+ CASME2-RAW --> sub01(ad esempio).
+ Inoltre, per la fase di preprocessing, va scaricato il file
+ 'shape_predictor_68_face_landmarks.dat' per l'individuazione dei 
+ landmarks (https://github.com/AKSHAYUBHAT/TensorFace/blob/master/open
+ face/models/dlib/shape_predictor_68_face_landmarks.dat) e collocato
+ nella cartella source.
+ Il programma scorrerà frame by frame e farà via via predizioni
+ in base ai modelli presenti nella cartella source.
+ Inoltre verranno generati file .txt contenenti i descrittori relativi
+ ai 3 ROI in formato libSVM ma divisi da caratteri in base alle finestre
+ e alle cartelle.
+ Per addestrare modelli diversi è presente la funzione SVM_model in
+ svm.py che dato in ingresso un opportuno dataset, rende in uscita il 
+ relativo modello.
+
+Per maggiori dettagli, consultare il pdf di documentazione(in aggiornamento).
