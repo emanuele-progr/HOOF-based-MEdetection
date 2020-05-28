@@ -32,4 +32,7 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  svm.py che dato in ingresso un opportuno dataset, rende in uscita il 
  relativo modello.
 
+N.B. il programma è stato testato e sviluppato su Windows. A breve saranno fatte
+     modifiche per estendere la compatibilità a Linux.
+     
 Per maggiori dettagli, consultare il pdf di documentazione(in aggiornamento).
