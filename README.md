@@ -16,4 +16,4 @@ Il programma utilizza varie librerie di image processing e machine learning tra 
 - [Shape predictor landmarks](https://github.com/AKSHAYUBHAT/TensorFace/blob/master/openface/models/dlib/shape_predictor_68_face_landmarks.dat)
 - [article1](https://arxiv.org/abs/1903.10765)
 - [article2](https://arxiv.org/abs/1812.10306)
-- [article3](https://www.researchgate.net/publication/319769812_Reading_Hidden_Emotions_Spontaneous_Micro-expression_Spotting_and_ Recognition)
+- [article3](https://www.researchgate.net/publication/319769812_Reading_Hidden_Emotions_Spontaneous_Micro-expression_Spotting_and_Recognition)
