@@ -1,6 +1,7 @@
 
 import sys
 import os
+import numpy as np
 from subprocess import *
 from plotFunctions import *
 
@@ -98,6 +99,16 @@ def merge_predict(path1, path2, path3):
 
 
     confusionMatrixPlot(numbers1)
+
+
+# Function to calculate Chi-distace
+def chi2_distance(A, B):
+    # compute the chi-squared distance using above formula
+    chi = 0.5 * np.sum([((a - b) ** 2) / (a + b)
+                        for (a, b) in zip(A, B)])
+
+    return chi
+
 
 # function to build SVM model
 
