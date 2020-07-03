@@ -13,9 +13,9 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  in un vettore) e costruirà la matrice di confusione calcolando alcuni
  parametri di confronto.
 
--Per fare predizioni su sequenze video di CASME2 vanno inserite 
- nella cartella test_folder all'interno di source le cartelle
- contenenti i frame dei video di un soggetto specifico.
+-Per fare predizioni su sequenze video di CASME2 inanzitutto va creata una 
+ cartella 'test_folder'  all'interno di source e vanno inserite al suo 
+ interno le cartelle contenenti i frame dei video di un soggetto specifico.
  Le cartelle in questione si trovano nel dataset CASME2 in 
  CASME2-RAW --> sub01(ad esempio).
  Inoltre, per la fase di preprocessing, va scaricato il file
@@ -35,4 +35,4 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
 N.B. il programma è stato testato e sviluppato su Windows. A breve saranno fatte
      modifiche per estendere la compatibilità a Linux.
      
-Per maggiori dettagli, consultare il pdf di documentazione(in aggiornamento).
+Per maggiori dettagli, consultare il pdf di documentazione(in aggiornamento) e soprattutto la relazione.
