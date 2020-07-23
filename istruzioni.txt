@@ -13,12 +13,10 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  in un vettore) e costruirà la matrice di confusione calcolando alcuni
  parametri di confronto.
 
--Per fare predizioni su sequenze video di CASME2 inanzitutto va creata una 
- cartella 'test_folder'  all'interno di source e vanno inserite al suo 
- interno le cartelle contenenti i frame dei video di un soggetto specifico.
- Le cartelle in questione si trovano nel dataset CASME2 in 
- CASME2-RAW --> sub01(ad esempio).
- Inoltre, per la fase di preprocessing, va scaricato il file
+-Per fare predizioni su sequenze video di CASME2, una volta avviato il
+ programma, va inserito il path al soggetto da testare come richiesto
+ dalla print sul terminale.
+ Per la fase di preprocessing, va scaricato il file
  'shape_predictor_68_face_landmarks.dat' per l'individuazione dei 
  landmarks (https://github.com/AKSHAYUBHAT/TensorFace/blob/master/open
  face/models/dlib/shape_predictor_68_face_landmarks.dat) e collocato
@@ -29,7 +27,7 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  ai 3 ROI in formato libSVM ma divisi da caratteri in base alle finestre
  e alle cartelle.
  Per addestrare modelli diversi è presente la funzione SVM_model in
- svm.py che dato in ingresso un opportuno dataset, rende in uscita il 
+ svm.py che, dato in ingresso un opportuno dataset, rende in uscita il 
  relativo modello.
 
 N.B. il programma è stato testato e sviluppato su Windows. A breve saranno fatte
