@@ -1,96 +1,28 @@
 from imutils import face_utils
 from functions import *
 from svm import *
-from preprocessing import getROI, getROI2, getShape
+from preprocessing import getROI, getROI2, getShape, FaceAligner
 import numpy as np
 import os
+import sys
 import imutils
 import dlib
 import cv2
 
 
-#class to allign face based on landmarks
-
-class FaceAligner:
-    def __init__(self, predictor, desiredLeftEye=(0.35, 0.35),
-                 desiredFaceWidth=256, desiredFaceHeight=None):
-        # store the facial landmark predictor, desired output left
-        # eye position, and desired output face width + height
-        self.predictor = predictor
-        self.desiredLeftEye = desiredLeftEye
-        self.desiredFaceWidth = desiredFaceWidth
-        self.desiredFaceHeight = desiredFaceHeight
-
-        # if the desired face height is None, set it to be the
-        # desired face width (normal behavior)
-        if self.desiredFaceHeight is None:
-            self.desiredFaceHeight = self.desiredFaceWidth
-
-    def align(self, image, gray, rect):
-        # convert the landmark (x, y)-coordinates to a NumPy array
-        shape = self.predictor(gray, rect)
-        shape2 = shape
-        shape = shape_to_np(shape)
-
-        # extract the left and right eye (x, y)-coordinates
-        (lStart, lEnd) = FACIAL_LANDMARKS_68_IDXS["left_eye"]
-        (rStart, rEnd) = FACIAL_LANDMARKS_68_IDXS["right_eye"]
-        leftEyePts = shape[lStart:lEnd]
-        rightEyePts = shape[rStart:rEnd]
-
-        # compute the center of mass for each eye
-        leftEyeCenter = leftEyePts.mean(axis=0).astype("int")
-        rightEyeCenter = rightEyePts.mean(axis=0).astype("int")
-
-        # compute the angle between the eye centroids
-        dY = rightEyeCenter[1] - leftEyeCenter[1]
-        dX = rightEyeCenter[0] - leftEyeCenter[0]
-        angle = np.degrees(np.arctan2(dY, dX)) - 180
-
-        # compute the desired right eye x-coordinate based on the
-        # desired x-coordinate of the left eye
-        desiredRightEyeX = 1.0 - self.desiredLeftEye[0]
-
-        # determine the scale of the new resulting image by taking
-        # the ratio of the distance between eyes in the *current*
-        # image to the ratio of distance between eyes in the
-        # *desired* image
-        dist = np.sqrt((dX ** 2) + (dY ** 2))
-        desiredDist = (desiredRightEyeX - self.desiredLeftEye[0])
-        desiredDist *= self.desiredFaceWidth
-        scale = desiredDist / dist
-
-        # compute center (x, y)-coordinates (i.e., the median point)
-        # between the two eyes in the input image
-        eyesCenter = ((leftEyeCenter[0] + rightEyeCenter[0]) // 2,
-                      (leftEyeCenter[1] + rightEyeCenter[1]) // 2)
-
-        # grab the rotation matrix for rotating and scaling the face
-        M = cv2.getRotationMatrix2D(eyesCenter, angle, scale)
-
-        # update the translation component of the matrix
-        tX = self.desiredFaceWidth * 0.5
-        tY = self.desiredFaceHeight * self.desiredLeftEye[1]
-        M[0, 2] += (tX - eyesCenter[0])
-        M[1, 2] += (tY - eyesCenter[1])
-
-        # apply the affine transformation
-        (w, h) = (self.desiredFaceWidth, self.desiredFaceHeight)
-        output = cv2.warpAffine(image, M, (w, h),
-                                flags=cv2.INTER_CUBIC)
-
-        # return the aligned face
-        return output
 
 # function to calculate confusion matrix from pre extracted data descriptors and test data
 
-fast_SVMpredict()
+#fast_SVMpredict()
+#plot()
 
 # main program
 
 # cycling on test folder to process frame by frame videos
+dest = raw_input("Enter the path of CASME2's subject to test (ex. C:\Temp\CASME2\CASME2-RAW\sub01\ ) : \n")
+assert os.path.exists(dest), "invalid path to subject"
+dest = dest.replace(os.sep, '/')
 
-dest = 'test_folder'
 folders = list(filter(lambda x: os.path.isdir(os.path.join(dest, x)), os.listdir(dest)))
 for folder in folders:
     print("Processing folder : " + folder + " .........")
@@ -112,11 +44,8 @@ for folder in folders:
     color2 = (74, 74, 74)
     color3 = (69, 139, 0)
     '''
-
-    folder = os.path.join('test_folder/' +folder)
-
     # load and store images from folder in test_folder
-
+    folder = os.path.join(dest + folder)
     images = load_images_from_folder(folder)
 
     # set sliding window size and timestep
@@ -137,7 +66,7 @@ for folder in folders:
             window_counter = 0
 
             # overlap between sliding windows. first window is 0 - 100, second 60 - 160, third 120 - 220, ...
-            counter -= 40/timestep
+            counter -= int(40/timestep)
             #calcAndStoreHOF(firstRois, rois, hist_list)
             #calcAndStoreHOF(midROIS, rois, hist_list)
             #calcAndStoreHOF(firstRois, midROIS, hist_list)
@@ -189,9 +118,10 @@ for folder in folders:
             #shape2 = predictor(image_copy, rect)
 
             # display the output images
-            # cv2.imshow("Original", faceOrig)
+            #cv2.imshow("Original", faceOrig)
+            #cv2.imwrite('original3.png', faceOrig)
             # cv2.imshow("Aligned", faceAligned)
-            # cv2.waitKey(0)
+            #cv2.waitKey(0)
         # show the output image with the face detections + facial landmarks
 
         rects = detector(faceAligned, 1)
@@ -229,10 +159,13 @@ for folder in folders:
         rect_img = faceAligned
         rect_img2 = faceAlignedWithoutCircle[yy: yy + h, xx: xx + w]
         #cv2.imshow('starter', image_copy)
+        #cv2.imwrite('starter.png', image_copy)
         #cv2.waitKey(0)
         #cv2.imshow('faceDetected&landmarks', rect_img)
+        #cv2.imwrite('faceDetected&landmarks.png', rect_img)
         #cv2.waitKey(0)
         #cv2.imshow('cropped&landmarks', rect_img3)
+        #cv2.imwrite('cropped&aligned.png', rect_img2)
         #cv2.waitKey(0)
 
         if window_counter == 0:
