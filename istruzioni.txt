@@ -12,9 +12,11 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  ottenere predizioni sul testset (le cui true label sono state inserite
  in un vettore) e costruirà la matrice di confusione calcolando alcuni
  parametri di confronto.
+ Per riprodurre dunque i risultati deve essere semplicemente eseguito 
+ il file results.py.
 
--Per fare predizioni su sequenze video di CASME2, una volta avviato il
- programma, va inserito il path al soggetto da testare come richiesto
+-Per fare predizioni su sequenze video di CASME2, una volta eseguito il
+ file main.py, deve essere inserito il path al soggetto da testare come richiesto
  dalla print sul terminale.
  Per la fase di preprocessing, va scaricato il file
  'shape_predictor_68_face_landmarks.dat' per l'individuazione dei 
