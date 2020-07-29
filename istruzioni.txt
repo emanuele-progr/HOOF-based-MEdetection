@@ -35,7 +35,8 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  datax1 -> left eyebrow  datax2 -> right eyebrow )
  devono poi essere etichettati a mano data la complessità
  del task seguendo la tabella excel "CASME2-coding" , la tabella degli AUs
- reperibile online e impostando una soglia di true positive.
+ reperibile online (https://en.wikipedia.org/wiki/Facial_Action_Coding_System)
+ e impostando una soglia di true positive.
  ESEMPIO: microespressione con AU 10 (dalla tabella --> "upper lip raiser")
  nei frame 50 - 150. Con una soglia 80% questa deve essere effettivamente 
  segnalata come true positive +1, per il training del modello relativo
