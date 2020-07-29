@@ -19,7 +19,7 @@ import cv2
 # main program
 
 # cycling on test folder to process frame by frame videos
-dest = raw_input("Enter the path of CASME2's subject to test (ex. C:\Temp\CASME2\CASME2-RAW\sub01\ ) : \n")
+dest = input("Enter the path of CASME2's subject to test (ex. C:\Temp\CASME2\CASME2-RAW\sub01\ ) : \n")
 assert os.path.exists(dest), "invalid path to subject"
 dest = dest.replace(os.sep, '/')
 
