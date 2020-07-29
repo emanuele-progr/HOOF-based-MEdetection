@@ -59,3 +59,6 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
 
      
 Per maggiori dettagli, consultare la relazione.
+
+N.B il programma è stato sviluppato per windows, per l'esecuzione su Linux sono 
+    necessari accorgimenti e modifiche nell'uso di libSVM
