@@ -28,9 +28,25 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  Inoltre verranno generati file .txt contenenti i descrittori relativi
  ai 3 ROI in formato libSVM ma divisi da caratteri in base alle finestre
  e alle cartelle.
- Per addestrare modelli diversi è presente la funzione SVM_model in
- svm.py che, dato in ingresso un opportuno dataset, rende in uscita il 
- relativo modello.
+ Questi sono file che contengono i descrittori divisi da una riga "AAA" per
+ indicare la separazione tra due finestre e la riga "END" per indicare la
+ fine del subfolder.
+ Questi file "raw" relativi alle diverse ROIs( datax0 -> lips/mouth
+ datax1 -> left eyebrow  datax2 -> right eyebrow )
+ devono poi essere etichettati a mano data la complessità
+ del task seguendo la tabella excel "CASME2-coding" , la tabella degli AUs
+ reperibile online e impostando una soglia di true positive.
+ Quindi devono essere eliminati i caratteri "AAA" e "END" e messe a "+1"
+ invece che a "+2" (valore di default) le finestre relative a una ME.
+ A questo punto devono essere costruiti 3 dataset, uno per ROI, bilanciando
+ gli esempi +1 e +2 e, per addestrare modelli diversi, è presente la 
+ funzione SVM_model in svm.py che, dato in ingresso un opportuno dataset,
+ rende in uscita il relativo modello.
+ Questo può poi essere utilizzato inserendo il nome del file modello nella
+ funzione "SVM_predict" e il range file relativo al dataset di addestramento
+ che è stato generato nello step precedente.
+ A questo punto il programma userà il modello inserito per le predizioni
+ frame by frame.
 
 N.B. il programma è stato testato e sviluppato su Windows. A breve saranno fatte
      modifiche per estendere la compatibilità a Linux.
