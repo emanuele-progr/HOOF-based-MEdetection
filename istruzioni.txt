@@ -38,8 +38,9 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  reperibile online e impostando una soglia di true positive.
  ESEMPIO: microespressione con AU 10 (dalla tabella --> "upper lip raiser")
  nei frame 50 - 150. Con una soglia 80% questa deve essere effettivamente 
- segnalata come true positive +1 per il training nella seconda finestra ( che và 
- da 60 a 160) e come esempio negativo +2 nella prima finestra.
+ segnalata come true positive +1, per il training del modello relativo
+ alla bocca, nella seconda finestra ( che và da 60 a 160) e come esempio
+ negativo +2 nella prima finestra.
  Quindi devono essere eliminati i caratteri "AAA" e "END" e messe a "+1"
  invece che a "+2" (valore di default) le finestre relative a una ME.
  A questo punto devono essere costruiti 3 dataset, uno per ROI, bilanciando
