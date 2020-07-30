@@ -113,7 +113,7 @@ def chi2_distance(A, B):
 # function to build SVM model
 
 def SVM_model(trainPath):
-    filename = "trainData"
+    filename = trainPath.replace(".txt", "")
     range_file = filename + ".txt.range"
     scaled_file = filename + ".txt.scale"
     model_file = filename + ".txt.model"
