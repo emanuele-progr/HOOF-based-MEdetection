@@ -56,9 +56,11 @@ ISTRUZIONI PER ESEGUIRE CORRETTAMENTE IL PROGRAMMA E RIPRODURRE I RISULTATI
  che è stato generato nello step precedente.
  A questo punto il programma userà il modello inserito per le predizioni
  frame by frame.
+ Per maggiori dettagli a riguardo la fase di training,
+ vedere la cartella "training_example".
 
      
-Per maggiori dettagli, consultare la relazione.
+ Consultare inoltre la relazione per una migliore comprensione.
 
 N.B il programma è stato sviluppato per windows, per l'esecuzione su Linux sono 
     necessari accorgimenti e modifiche nell'uso di libSVM
