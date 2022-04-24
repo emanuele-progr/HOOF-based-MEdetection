@@ -1,7 +1,7 @@
 # HOOF-based-MEdetection
 A python program to detect micro expression(ME) in video with HOOF descriptors and SVM classifier. 
 
-![faceDetected landmarks](https://user-images.githubusercontent.com/22282000/164990509-91642f8d-aa0e-48d6-8258-71d9532acfc6.png)
+<img width="200" alt="faceDetected landmarks" src="https://user-images.githubusercontent.com/22282000/164990572-965e3ef8-48ef-48e3-8915-1e87c27979e2.png">
 
 --------------------------------------------------
 
